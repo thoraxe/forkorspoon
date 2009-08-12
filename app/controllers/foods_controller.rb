@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_filter :login_required
 
   def index
-    @user = User.find(current_user, :include => :foods)
+    @user = User.find(current_user, :include => :foods, :order => "foods.created_at ASC")
     @foods = @user.foods
     
     # a food object for the form, just in case
