@@ -13,6 +13,7 @@ ActiveRecord::Schema.define(:version => 20090812183558) do
 
   create_table "foods", :force => true do |t|
     t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

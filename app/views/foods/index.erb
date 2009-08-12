@@ -1,0 +1,10 @@
+<ul>
+  <% for food in @foods do -%>
+    <li><%= food.description %> @ <%= food.created_at.to_s %> <%= link_to 'x', food, :method => :delete %></li>
+  <% end -%>
+</ul>
+<div id="more_food">
+  <% form_for @food do |f| -%>
+    <%= f.text_field :description %>
+  <% end %>
+</div>
