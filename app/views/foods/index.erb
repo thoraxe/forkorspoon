@@ -1,6 +1,6 @@
 <table>
   <% (@from_date..@to_date).each do |d| -%>
-    <tr><td><%= d.to_s + "-" + @foodgroups[d].length.to_s unless @foodgroups[d].nil? %></td></tr>
+    <tr><td><%= d.strftime("%b %d, %Y") unless @foodgroups[d].nil? %></td></tr>
     <% if !@foodgroups[d].nil? -%>
       <tr><td><ul>
       <% for food in @foodgroups[d] do -%>
@@ -12,7 +12,7 @@
 </table>
 <div id="more_food">
   <% form_for @food do |f| -%>
-    <p><%= f.text_field :description %> @ <%= f.datetime_select :created_at %></p>
+    <p><%= f.text_field :description %> @ <%= f.datetime_select :created_at, {:minute_step => 15} %></p>
     <p><%= submit_tag %></p>
   <% end %>
 </div>
