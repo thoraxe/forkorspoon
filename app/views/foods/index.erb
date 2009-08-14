@@ -1,10 +1,18 @@
-<ul>
-  <% for food in @foods do -%>
-    <li><%= food.description %> @ <%= food.created_at.to_s %> <%= link_to 'x', food, :method => :delete %></li>
+<table>
+  <% (@from_date..@to_date).each do |d| -%>
+    <tr><td><%= d.to_s + "-" + @foodgroups[d].length.to_s unless @foodgroups[d].nil? %></td></tr>
+    <% if !@foodgroups[d].nil? -%>
+      <tr><td><ul>
+      <% for food in @foodgroups[d] do -%>
+        <li><%= food.description %> @ <%= food.created_at.to_s %> <%= link_to 'x', food, :method => :delete %></li>
+      <% end -%>
+      </ul></td></tr>
+    <% end %>
   <% end -%>
-</ul>
+</table>
 <div id="more_food">
   <% form_for @food do |f| -%>
-    <%= f.text_field :description %>
+    <p><%= f.text_field :description %> @ <%= f.datetime_select :created_at %></p>
+    <p><%= submit_tag %></p>
   <% end %>
 </div>
