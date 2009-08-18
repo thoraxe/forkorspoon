@@ -19,6 +19,7 @@ class FoodsController < ApplicationController
 
   def create
     @user = User.find(current_user)
+    params[:food][:created_at] = Time.zone.parse(params[:food][:created_at])
     @food = Food.new(params[:food])
     @user.foods << @food
     redirect_to foods_path
