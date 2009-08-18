@@ -1,3 +1,9 @@
+<div id="more_food">
+  <% form_for @food do |f| -%>
+    <p><%= f.text_field :description %> @ <%= f.datetime_select :created_at, {:minute_step => 15} %></p>
+    <p><%= submit_tag %></p>
+  <% end %>
+</div>
 <table>
   <% if !@from_date.nil? || !@to_date.nil? %>
     <% (@from_date..@to_date).each do |d| -%>
@@ -5,16 +11,10 @@
       <% if !@foodgroups[d].nil? -%>
         <tr><td><ul>
         <% for food in @foodgroups[d] do -%>
-          <li><%= food.description %> @ <%= food.created_at.to_s %> <%= link_to 'x', food, :method => :delete %></li>
+          <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= link_to 'x', food, :method => :delete %></li>
         <% end -%>
         </ul></td></tr>
       <% end %>
     <% end -%>
   <% end -%>
 </table>
-<div id="more_food">
-  <% form_for @food do |f| -%>
-    <p><%= f.text_field :description %> @ <%= f.datetime_select :created_at, {:minute_step => 15} %></p>
-    <p><%= submit_tag %></p>
-  <% end %>
-</div>
