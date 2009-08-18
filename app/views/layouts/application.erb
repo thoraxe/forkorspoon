@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
   </head>
   <body>
-    <%= status_box %>
+    <%= render :partial => "users/user_bar" %>
     <%= display_standard_flashes %>
     <%= yield %>
     Current time zone: <%= Time.zone.name %>
