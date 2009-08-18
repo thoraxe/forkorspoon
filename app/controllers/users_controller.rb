@@ -3,6 +3,21 @@ class UsersController < ApplicationController
   def index 
   end
 
+  def show
+    @user = User.find(current_user, :include => :foods, :order => "foods.created_at ASC")
+    @foods = @user.foods
+    
+    # create groups for each date
+    @foodgroups = @foods.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) }
+
+    # figure out the oldest date and the newest date
+    @from_date = @foodgroups.keys.first
+    @to_date = @foodgroups.keys.last
+
+    # a food object for the form, just in case
+    @food = Food.new
+  end
+
   # render new.rhtml
   def new
     @user = User.new
