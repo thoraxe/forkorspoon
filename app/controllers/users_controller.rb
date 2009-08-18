@@ -21,6 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_back_or_default(foods_path)
+      flash[:notice] = "Updated successfully."
+    else
+      flash[:error] = "Could not update."
+      render :action => 'edit'
+    end
+  end
+
   def activate
     logout_keeping_session!
     user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
