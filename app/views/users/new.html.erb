@@ -10,7 +10,7 @@
 <%= f.text_field :email %></p>
 
 <p><%= label_tag 'time_zone' %><br/>
-<%= f.time_zone_select :time_zone, TimeZone.us_zones %></p>
+<%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %></p>
 
 <p><%= label_tag 'password' %><br/>
 <%= f.password_field :password %></p>
