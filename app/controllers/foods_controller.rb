@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
     params[:food][:created_at] = Time.zone.parse(params[:food][:created_at])
     @food = Food.new(params[:food])
     @user.foods << @food
-    redirect_to users_path
+    redirect_back_or_default(user_path(current_user))
   end
 
   def edit
@@ -18,7 +18,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     if @user.id != @food.user_id
       flash[:error] = "Cheeky monkey, you can't edit what's not yours!"
-      redirect_back_or_default(users_path)
+      redirect_back_or_default(user_path(current_user))
     end
   end
 
@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
     else
       flash[:warning] = "Cheeky monkey, you can't edit what's not yours!"
     end
-    redirect_back_or_default(users_path)
+    redirect_back_or_default(user_path(current_user))
   end
 
   def destroy

@@ -6,7 +6,7 @@
 </div>
 <table>
   <% if !@from_date.nil? || !@to_date.nil? %>
-    <% (@from_date..@to_date).each do |d| -%>
+    <% @to_date.step(@from_date, -1) do |d| -%>
       <tr><td><%= d.strftime("%b %d, %Y") unless @foodgroups[d].nil? %></td></tr>
       <% if !@foodgroups[d].nil? -%>
         <tr><td><ul>
