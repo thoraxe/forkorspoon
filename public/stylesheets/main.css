@@ -1,0 +1,48 @@
+/* palette colors
+ * green mist - #c2d9b2
+ * lichen     - #dbe6c0
+ * lichen2    - #e5f0cd
+ * heather    - #c48ba9
+ * leaf       - #53824f
+*/
+html {
+  background:#E5F0CD;
+  font-family:verdana,sans-serif;
+  font-size:14px;
+}
+a, a:hover, a:visited, a:active {
+  color:#53824F;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+#main-site {
+  width:800px;
+  margin:0px auto;
+}
+#user-bar {
+  float:right;
+}
+#user-bar, #more-food, #eaten-foods {
+  margin-bottom:1em;
+}
+#user-bar, #more-food, #eaten-foods {
+  background:#DBE6C0;
+  border:1px solid #C2D9B2;
+  padding:5px;
+}
+#food-stuffs {
+  clear:both;
+}
+#eaten-foods h3 {
+  font-family:helvetica,arial,sans-serif;
+  font-weight:bold;
+  font-size:150%;
+}
+#eaten-foods ul {
+  margin-bottom:1em;
+}
+#eaten-foods a.delete {
+  color:#C48BA9;
+}

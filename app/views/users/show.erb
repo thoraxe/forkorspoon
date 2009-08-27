@@ -1,19 +1,18 @@
-<%= render :partial => "shared/food" %>
-<table>
-  <% if !@from_date.nil? || !@to_date.nil? %>
-    <% @to_date.step(@from_date, -1) do |d| -%>
-      <tr><td><%= d.strftime("%a %b %d, %Y") unless @foodgroups[d].nil? %></td></tr>
-      <% if !@foodgroups[d].nil? -%>
-        <tr><td><ul>
-        <% for food in @foodgroups[d] do -%>
-          <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= link_to 'x', food, :method => :delete, :confirm => "Really delete?" %> <%= link_to 'edit', edit_food_path(food) %></li>
-        <% end -%>
-        </ul></td></tr>
-      <% end %>
+<div id="food-stuffs">
+  <%= render :partial => "shared/food" %>
+  <div id="eaten-foods">
+    <% if !@from_date.nil? || !@to_date.nil? %>
+      <% @to_date.step(@from_date, -1) do |d| -%>
+        <h3><%= d.strftime("%a %b %d, %Y") unless @foodgroups[d].nil? %></h3>
+        <% if !@foodgroups[d].nil? -%>
+          <ul>
+          <% for food in @foodgroups[d] do -%>
+            <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= link_to 'x', food, :method => :delete, :confirm => "Really delete?", :class => "delete" %> <%= link_to 'edit', edit_food_path(food) %></li>
+          <% end -%>
+          </ul>
+        <% end %>
+      <% end -%>
     <% end -%>
-  <% end -%>
-</table>
-<div id="prevnext">
-  <p class="prev"><%= prev_link(params[:page]) %></p>
-  <p class="next"><%= next_link(params[:page])  %><p>
+    <p class="prevnext"><%= prev_link(params[:page]) %> <%= next_link(params[:page])  %><p>
+  </div>
 </div>

@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     if !params[:cancel]
       @user = User.find(params[:id])
       if @user.update_attributes(params[:user])
-        redirect_back_or_default(user_path(current_user))
         flash[:notice] = "Updated successfully."
       else
         flash[:error] = "Could not update."

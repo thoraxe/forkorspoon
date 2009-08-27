@@ -17,6 +17,9 @@
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
+<p><%= label_tag 'private_flag', 'Profile is Private?' %><br/>
+<%= f.check_box :private_flag %></p>
+
 <p><%= submit_tag 'Update' %><%= submit_tag 'Cancel', :name => "cancel" %></p>
 <% end -%>
 

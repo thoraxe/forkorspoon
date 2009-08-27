@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090818183115) do
+ActiveRecord::Schema.define(:version => 20090827155316) do
 
   create_table "foods", :force => true do |t|
     t.string   "description"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090818183115) do
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
     t.string   "time_zone"
+    t.boolean  "private_flag"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

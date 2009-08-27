@@ -3,10 +3,16 @@
   <head>
     <title>Food Recorder</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
+    <%= stylesheet_link_tag "main" %>
   </head>
   <body>
-    <%= render :partial => "users/user_bar" %>
-    <%= display_standard_flashes %>
-    <%= yield %>
+    <div id="main-site">
+      <div id="user-bar">
+        <%= render :partial => "users/user_bar" %>
+      </div>
+      <%= display_standard_flashes %>
+      <%= yield %>
+    </div>
   </body>
 </html>
