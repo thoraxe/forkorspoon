@@ -90,4 +90,40 @@ module UsersHelper
     end
   end
 
+  def prev_link(page, user)
+    return link_to("prev", user_path(user, :page => params[:page].to_i - 1)) unless page.blank?
+  end
+
+  def next_link(page, user)
+    if page.blank?
+      link_to "next", user_path(user, :page => 2)
+    else
+      link_to "next", user_path(user, :page => params[:page].to_i + 1)
+    end
+  end
+
+  def edit_delete_link(food)
+    if logged_in?  
+      if current_user.id == params[:id].to_i
+        link_to('x', food, :method => :delete, :confirm => "Really delete?", :class => "delete") + " " + link_to('edit', edit_food_path(food))
+      end
+    end
+  end
+  
+  def display_noms?
+    if logged_in?
+      !(current_user.id == params[:id].to_i)
+    else
+      true
+    end
+  end
+
+  def display_foods?(user)
+    if logged_in?
+      current_user.id == params[:id].to_i
+    else
+      !user.private_flag
+    end
+  end
+
 end

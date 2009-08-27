@@ -8,6 +8,7 @@
   <div id="user-bar-greeting"><p><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></p></div>
   <div id="user-bar-action"  >
     <p>(<%= link_to "Log in",  login_path,  { :title => "Log in" } %>)
-    (<%= link_to "Sign up", signup_path, { :title => "Create an account" } %>)</p>
+    (<%= link_to "Sign up", signup_path, { :title => "Create an account" } %>)
+    (<%= link_to "Forgot password", :forgot %>)</p>
   </div>
 <% end -%>

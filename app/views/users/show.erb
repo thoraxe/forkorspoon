@@ -1,5 +1,6 @@
 <div id="food-stuffs">
-  <%= render :partial => "shared/food" %>
+  <%= render :partial => "shared/food" unless display_noms? %>
+  <% if display_foods?(@user) %>
   <div id="eaten-foods">
     <% if !@from_date.nil? || !@to_date.nil? %>
       <% @to_date.step(@from_date, -1) do |d| -%>
@@ -7,12 +8,13 @@
         <% if !@foodgroups[d].nil? -%>
           <ul>
           <% for food in @foodgroups[d] do -%>
-            <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= link_to 'x', food, :method => :delete, :confirm => "Really delete?", :class => "delete" %> <%= link_to 'edit', edit_food_path(food) %></li>
+            <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= edit_delete_link(food) %></li>
           <% end -%>
           </ul>
         <% end %>
       <% end -%>
     <% end -%>
-    <p class="prevnext"><%= prev_link(params[:page]) %> <%= next_link(params[:page])  %><p>
+    <p class="prevnext"><%= prev_link(params[:page], @user) %> <%= next_link(params[:page], @user)  %><p>
   </div>
+  <% end %>
 </div>

@@ -1,0 +1,15 @@
+<div id="user-functions">
+  <% form_for :user do |f| -%>  
+    <p>  
+      Reset Password Request  
+    </p>  
+    <p>  
+      <label for="email">Email</label><br />  
+      <%= f.text_field :email %>  
+    </p>  
+    <p>  
+      <%= submit_tag 'Cancel', :name => 'cancel' %>  
+      <%= submit_tag 'Submit' %>  
+    </p>  
+  <% end -%>
+</div>

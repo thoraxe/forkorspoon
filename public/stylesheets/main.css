@@ -4,6 +4,7 @@
  * lichen2    - #e5f0cd
  * heather    - #c48ba9
  * leaf       - #53824f
+ * http://www.colourlovers.com/palette/937769/Heather_Field
 */
 html {
   background:#E5F0CD;
@@ -24,15 +25,15 @@ a:hover {
 #user-bar {
   float:right;
 }
-#user-bar, #more-food, #eaten-foods {
+#user-bar, #more-food, #eaten-foods, #main-site div.flash {
   margin-bottom:1em;
 }
-#user-bar, #more-food, #eaten-foods {
+#user-bar, #more-food, #eaten-foods, #main-site div.flash, #user-functions {
   background:#DBE6C0;
   border:1px solid #C2D9B2;
   padding:5px;
 }
-#food-stuffs {
+#food-stuffs, #main-site div.flash, #user-functions {
   clear:both;
 }
 #eaten-foods h3 {
