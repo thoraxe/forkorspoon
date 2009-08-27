@@ -2,7 +2,7 @@
 <table>
   <% if !@from_date.nil? || !@to_date.nil? %>
     <% @to_date.step(@from_date, -1) do |d| -%>
-      <tr><td><%= d.strftime("%b %d, %Y") unless @foodgroups[d].nil? %></td></tr>
+      <tr><td><%= d.strftime("%a %b %d, %Y") unless @foodgroups[d].nil? %></td></tr>
       <% if !@foodgroups[d].nil? -%>
         <tr><td><ul>
         <% for food in @foodgroups[d] do -%>

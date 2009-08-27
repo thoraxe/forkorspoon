@@ -4,15 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # want to pull 3 days per page. need to do some math on the page number to determine the date range
-    # we wack off a second to get a datetime object.  we also use 1 second only to get inside the whole date
-    if params[:page].blank? || params[:page].to_i == 1
-      @start = Date.today - 2.days - 1.second
-      @the_end = Date.today + 1.days - 1.second
-    else
-      @start = Date.today - (params[:page].to_i * 3 - 1).days - 1.second 
-      @the_end = Date.today - (params[:page].to_i * 3 - 4).days - 1.second
-    end
+    @start,@the_end = week_calculator(params[:page])
 
     @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => current_user.id, :created_at => (@start.utc)..(@the_end.utc) } )
     
