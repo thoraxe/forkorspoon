@@ -17,6 +17,6 @@
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag 'Update' %></p>
+<p><%= submit_tag 'Update' %><%= submit_tag 'Cancel', :name => "cancel" %></p>
 <% end -%>
 

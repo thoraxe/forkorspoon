@@ -43,14 +43,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      redirect_back_or_default(foods_path)
-      flash[:notice] = "Updated successfully."
-    else
-      flash[:error] = "Could not update."
-      render :action => 'edit'
+    if !params[:cancel]
+      @user = User.find(params[:id])
+      if @user.update_attributes(params[:user])
+        redirect_back_or_default(user_path(current_user))
+        flash[:notice] = "Updated successfully."
+      else
+        flash[:error] = "Could not update."
+        render :action => 'edit'
+      end
     end
+    redirect_back_or_default(user_path(current_user))
   end
 
   def activate
