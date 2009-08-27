@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     # want to pull 3 days per page. need to do some math on the page number to determine the date range
     # we wack off a second to get a datetime object.  we also use 1 second only to get inside the whole date
     if params[:page].blank? || params[:page].to_i == 1
@@ -26,6 +25,7 @@ class UsersController < ApplicationController
 
     # a food object for the form, just in case
     @food = Food.new
+    @foodtime = Time.zone.now.strftime("%m/%d/%Y %I:%M %p")
   end
 
   # render new.rhtml

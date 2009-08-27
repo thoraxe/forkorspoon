@@ -1,9 +1,4 @@
-<div id="more_food">
-  <% form_for @food do |f| -%>
-    <p>nom: <%= f.text_field :description %> @ <%= f.text_field :created_at, :value => Time.zone.now.strftime("%m/%d/%Y %I:%M %p") %></p>
-    <p><%= submit_tag %></p>
-  <% end %>
-</div>
+<%= render :partial => "shared/food" %>
 <table>
   <% if !@from_date.nil? || !@to_date.nil? %>
     <% @to_date.step(@from_date, -1) do |d| -%>
