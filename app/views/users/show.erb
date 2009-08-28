@@ -1,5 +1,5 @@
 <div id="food-stuffs">
-  <%= render :partial => "shared/food" unless display_noms? %>
+  <%= render :partial => "shared/food" unless display_noms?(@user) %>
   <% if display_foods?(@user) %>
   <div id="eaten-foods">
     <% if !@from_date.nil? || !@to_date.nil? %>
@@ -8,7 +8,7 @@
         <% if !@foodgroups[d].nil? -%>
           <ul>
           <% for food in @foodgroups[d] do -%>
-            <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= edit_delete_link(food) %></li>
+            <li><%= food.created_at.strftime("%I:%M %p") %> : <%= food.description %> <%= edit_delete_link(food, @user) %></li>
           <% end -%>
           </ul>
         <% end %>

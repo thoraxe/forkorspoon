@@ -102,24 +102,33 @@ module UsersHelper
     end
   end
 
-  def edit_delete_link(food)
+  def edit_delete_link(food, user)
     if logged_in?  
-      if current_user.id == params[:id].to_i
+      if current_user.id == user.id
         link_to('x', food, :method => :delete, :confirm => "Really delete?", :class => "delete") + " " + link_to('edit', edit_food_path(food))
       end
     end
   end
   
-  def display_noms?
+  def display_noms?(user)
+    # this one is inverted
     if logged_in?
-      !(current_user.id == params[:id].to_i)
+      !(current_user.id == user.id)
     else
       true
     end
   end
 
   def display_foods?(user)
-    !user.private_flag
+    if logged_in?
+      if current_user.id == user.id
+        return true
+      else
+        !user.private_flag
+      end
+    else
+      !user.private_flag
+    end
   end
 
 end

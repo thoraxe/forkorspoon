@@ -9,11 +9,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-
     @start,@the_end = week_calculator(params[:page])
 
-    @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => params[:id], :created_at => (@start.utc)..(@the_end.utc) } )
+    if params[:login]
+      @user = User.find_by_login(params[:login])
+      @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => @user.id, :created_at => (@start.utc)..(@the_end.utc) } )
+    else
+      @user = User.find(params[:id])
+      @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => params[:id], :created_at => (@start.utc)..(@the_end.utc) } )
+    end
     
     # create groups for each date
     @foodgroups = @foods.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) }

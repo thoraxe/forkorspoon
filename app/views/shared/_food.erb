@@ -1,6 +1,6 @@
 <div id="more-food">
   <% form_for @food do |f| -%>
     <p><%= f.text_field :description %> @ <%= f.text_field :created_at, :value => @foodtime %></p>
-    <p><%= submit_tag "nom" %><%= submit_tag "Cancel", :name => "cancel" %></p>
+    <p><%= submit_tag "nom" %><%= link_to 'cancel', user_path(current_user) %></p>
   <% end %>
 </div>
