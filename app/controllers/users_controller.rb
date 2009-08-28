@@ -50,16 +50,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if !params[:cancel]
-      @user = User.find(params[:id])
-      if @user.update_attributes(params[:user])
-        flash[:notice] = "Updated successfully."
-      else
-        flash[:error] = "Could not update."
-        render :action => 'edit'
-      end
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Updated successfully."
+      redirect_back_or_default(user_path(current_user))
+    else
+      flash[:error] = "Could not update."
+      render :action => 'edit'
     end
-    redirect_back_or_default(user_path(current_user))
   end
 
   def activate
