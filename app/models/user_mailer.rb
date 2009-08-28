@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
-      @from        = "root@thoraxe.gotdns.org"
+      @from        = "info@forkorspoon.com"
       @subject     = "[foodrecorder] your activation email"
       @sent_on     = Time.now
       @body[:user] = user
