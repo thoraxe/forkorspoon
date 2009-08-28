@@ -119,11 +119,7 @@ module UsersHelper
   end
 
   def display_foods?(user)
-    if logged_in?
-      current_user.id == params[:id].to_i
-    else
-      !user.private_flag
-    end
+    !user.private_flag
   end
 
 end

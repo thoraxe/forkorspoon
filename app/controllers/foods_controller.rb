@@ -10,6 +10,7 @@ class FoodsController < ApplicationController
       @user = User.find(current_user)
       params[:food][:created_at] = Time.zone.parse(params[:food][:created_at])
       @food = Food.new(params[:food])
+      flash[:notice] = "nomnomnom!"
       @user.foods << @food
     end
     redirect_to(user_path(current_user))
