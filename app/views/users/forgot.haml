@@ -1,0 +1,5 @@
+#user-functions
+  - form_for :user do |f|
+    %p Reset Password Request
+    %p== #{label_tag 'email'} #{f.text_field :email}
+    %p== #{submit_tag 'Help!'} #{link_to 'Cancel', '/'}
