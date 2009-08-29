@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index 
     if logged_in?
-      redirect_to user_path(current_user)
+      redirect_to userid_path(current_user.login)
     end
   end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Updated successfully."
-      redirect_back_or_default(user_path(current_user))
+      redirect_back_or_default(userid_path(current_user.login))
     else
       flash[:error] = "Could not update."
       render :action => 'edit'

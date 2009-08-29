@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
       flash[:notice] = "nomnomnom!"
       @user.foods << @food
     end
-    redirect_to(user_path(current_user))
+    redirect_to(userid_path(current_user.login))
   end
 
   def edit
@@ -22,7 +22,7 @@ class FoodsController < ApplicationController
     @foodtime = @food.created_at.strftime("%m/%d/%Y %I:%M %p")
     if @user.id != @food.user_id
       flash[:error] = "Cheeky monkey, you can't edit what's not yours!"
-      redirect_back_or_default(user_path(current_user))
+      redirect_back_or_default(userid_path(current_user.login))
     end
   end
 
@@ -36,13 +36,13 @@ class FoodsController < ApplicationController
         flash[:warning] = "Cheeky monkey, you can't edit what's not yours!"
       end
     end
-    redirect_back_or_default(user_path(current_user))
+    redirect_back_or_default(userid_path(current_user.login))
   end
 
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    redirect_back_or_default(user_path(current_user))
+    redirect_back_or_default(userid_path(current_user.login))
   end
 
 end
