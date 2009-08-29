@@ -1,0 +1,51 @@
+/* palette colors
+/* http://www.colourlovers.com/palette/937769/Heather_Field
+!green_mist = #c2d9b2
+!lichen     = #dbe6c0
+!lichen2    = #e5f0cd
+!heather    = #c48ba9
+!leaf       = #53824f
+
+html
+  :background = !lichen2
+  :font-family verdana,sans-serif
+
+a
+  :color = !leaf
+  :text-decoration none
+
+a:hover
+  :text-decoration underline
+
+#logo
+  :float left
+  h1
+    :font-family Helvetica,Arial,sans-serif
+    :font-weight bold
+    :font-size 200%
+    :padding 10px 0 0 10px
+
+#user-bar
+  :float right
+
+#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash
+  :background = !lichen
+  :border = 1px solid !green_mist
+  :padding 5px
+  :margin-bottom 1em
+
+#food-stuffs, #doc div.flash, #user-functions
+  :clear both
+
+#eaten-foods 
+  h3
+    :font-family helvetica,arial,sans-serif
+    :font-weight bold
+    :font-size 150%
+  ul
+    :margin-bottom 1em
+  a.delete
+    :color = !heather
+
+#ft
+  :text-align center

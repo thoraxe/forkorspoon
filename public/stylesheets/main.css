@@ -1,57 +1,44 @@
-/* palette colors
- * green mist - #c2d9b2
- * lichen     - #dbe6c0
- * lichen2    - #e5f0cd
- * heather    - #c48ba9
- * leaf       - #53824f
- * http://www.colourlovers.com/palette/937769/Heather_Field
-*/
+/* palette colors */
+/* http://www.colourlovers.com/palette/937769/Heather_Field */
 html {
-  background:#E5F0CD;
-  font-family:verdana,sans-serif;
-  /*font-size:14px;*/
-}
-a, a:hover, a:visited, a:active {
-  color:#53824F;
-  text-decoration:none;
-}
+  background: #e5f0cd;
+  font-family: verdana,sans-serif; }
+
+a {
+  color: #53824f;
+  text-decoration: none; }
+
 a:hover {
-  text-decoration:underline;
-}
+  text-decoration: underline; }
+
 #logo {
-  float:left;
-}
-#logo h1 {
-  font-family:Helvetica,Arial,sans-serif;
-  font-weight:bold;
-  font-size:200%;
-  padding:10px 0 0 10px;
-}
+  float: left; }
+  #logo h1 {
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 200%;
+    padding: 10px 0 0 10px; }
+
 #user-bar {
-  float:right;
-}
-#user-bar, #more-food, #eaten-foods, #doc div.flash {
-  margin-bottom:1em;
-}
-#user-bar, #more-food, #eaten-foods, #doc div.flash, #user-functions {
-  background:#DBE6C0;
-  border:1px solid #C2D9B2;
-  padding:5px;
-}
+  float: right; }
+
+#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash {
+  background: #dbe6c0;
+  border: 1px solid #c2d9b2;
+  padding: 5px;
+  margin-bottom: 1em; }
+
 #food-stuffs, #doc div.flash, #user-functions {
-  clear:both;
-}
+  clear: both; }
+
 #eaten-foods h3 {
-  font-family:helvetica,arial,sans-serif;
-  font-weight:bold;
-  font-size:150%;
-}
+  font-family: helvetica,arial,sans-serif;
+  font-weight: bold;
+  font-size: 150%; }
 #eaten-foods ul {
-  margin-bottom:1em;
-}
+  margin-bottom: 1em; }
 #eaten-foods a.delete {
-  color:#C48BA9;
-}
+  color: #c48ba9; }
+
 #ft {
-  text-align:center;
-}
+  text-align: center; }
