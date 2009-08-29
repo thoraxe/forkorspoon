@@ -1,0 +1,10 @@
+- if logged_in?
+  #user-bar-greeting
+    %p== Logged in as #{link_to_current_user :content_method => :login}
+  #user-bar-action
+    %p== (#{link_to("Log out", logout_path, { :title => "Log out" } )}) (#{link_to("Edit Profile", edit_user_path(current_user), {:title => "Edit Profile"})})
+- else
+  #user-bar-greeting
+    %p== #{link_to_login_with_IP 'Not logged in', :style => 'border: none;'}
+  #user-bar-action
+    %p== (#{link_to("Log in",  login_path,  { :title => "Log in" })}) (#{link_to("Sign up", signup_path, { :title => "Create an account" })}) (#{link_to "Forgot password", :forgot})
