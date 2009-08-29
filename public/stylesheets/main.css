@@ -9,7 +9,7 @@
 html {
   background:#E5F0CD;
   font-family:verdana,sans-serif;
-  font-size:14px;
+  /*font-size:14px;*/
 }
 a, a:hover, a:visited, a:active {
   color:#53824F;
@@ -17,10 +17,6 @@ a, a:hover, a:visited, a:active {
 }
 a:hover {
   text-decoration:underline;
-}
-#main-site {
-  width:800px;
-  margin:0px auto;
 }
 #logo {
   float:left;
@@ -34,15 +30,15 @@ a:hover {
 #user-bar {
   float:right;
 }
-#user-bar, #more-food, #eaten-foods, #main-site div.flash {
+#user-bar, #more-food, #eaten-foods, #doc div.flash {
   margin-bottom:1em;
 }
-#user-bar, #more-food, #eaten-foods, #main-site div.flash, #user-functions {
+#user-bar, #more-food, #eaten-foods, #doc div.flash, #user-functions {
   background:#DBE6C0;
   border:1px solid #C2D9B2;
   padding:5px;
 }
-#food-stuffs, #main-site div.flash, #user-functions {
+#food-stuffs, #doc div.flash, #user-functions {
   clear:both;
 }
 #eaten-foods h3 {
@@ -56,8 +52,6 @@ a:hover {
 #eaten-foods a.delete {
   color:#C48BA9;
 }
-#footer {
-  clear:both;
-  margin: 0px auto;
+#ft {
   text-align:center;
 }
