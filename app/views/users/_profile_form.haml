@@ -1,0 +1,9 @@
+- @user.password = @user.password_confirmation = nil
+= error_messages_for :user
+- form_for :user, :url => @user, :html => {:method => :put} do |f|
+  %p== #{label_tag 'login'} #{f.text_field :login}
+  %p== #{label_tag 'email'} #{f.text_field :email}
+  %p== #{label_tag 'time_zone'} #{f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones}
+  %p== #{label_tag 'password'} #{f.password_field :password}
+  %p== #{label_tag 'password_confirmation', 'Confirm Password'} #{f.password_field :password_confirmation}
+  %p== #{label_tag 'private_flag', 'Profile is Private?'} #{f.check_box :private_flag}
