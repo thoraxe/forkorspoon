@@ -84,25 +84,21 @@ class UsersController < ApplicationController
   # forgot password stuff
   def forgot  
     if request.post?  
-      if !params[:cancel]
-        user = User.find_by_email(params[:user][:email])  
+      user = User.find_by_email(params[:user][:email])  
     
-        respond_to do |format|  
-          if user  
-            user.create_reset_code  
-            flash[:notice] = "Reset code sent to #{user.email}"  
+      respond_to do |format|  
+        if user  
+          user.create_reset_code  
+          flash[:notice] = "Reset code sent to #{user.email}"  
     
-            format.html { redirect_to login_path }  
-            format.xml { render :xml => user.email, :status => :created }  
-          else  
-            flash[:error] = "#{params[:user][:email]} does not exist in system"  
+          format.html { redirect_to login_path }  
+          format.xml { render :xml => user.email, :status => :created }  
+        else  
+          flash[:error] = "#{params[:user][:email]} does not exist in system"  
     
-            format.html { redirect_to login_path }  
-            format.xml { render :xml => user.email, :status => :unprocessable_entity }  
-          end  
+          format.html { redirect_to login_path }  
+          format.xml { render :xml => user.email, :status => :unprocessable_entity }  
         end  
-      else
-        redirect_back_or_default('/')
       end
     end  
   end  
