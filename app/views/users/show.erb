@@ -1,5 +1,5 @@
 <div id="food-stuffs">
-  <%= render :partial => "shared/food" unless display_noms?(@user) %>
+  <%= render :partial => "shared/foodtemp" unless display_noms?(@user) %>
   <% if display_foods?(@user) %>
   <div id="eaten-foods">
     <% if !@from_date.nil? || !@to_date.nil? %>
