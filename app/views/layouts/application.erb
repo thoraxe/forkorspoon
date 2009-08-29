@@ -8,11 +8,19 @@
   </head>
   <body>
     <div id="main-site">
-      <div id="user-bar">
-        <%= render :partial => "users/user_bar" %>
+      <div id="header">
+        <div id="logo">
+          <h1>Fork or Spoon</h1>
+        </div>
+        <div id="user-bar">
+          <%= render :partial => "users/user_bar" %>
+        </div>
       </div>
       <%= display_standard_flashes %>
       <%= yield %>
+      <div id="footer">
+        <a href="http://getsatisfaction.com/fork_or_spoon"><img alt="Badge_get_help" src="http://getsatisfaction.com/images/badges/badge_get_help.png" /></a>
+      </div>
     </div>
   </body>
 </html>

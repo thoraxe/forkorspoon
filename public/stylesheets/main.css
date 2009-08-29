@@ -22,6 +22,15 @@ a:hover {
   width:800px;
   margin:0px auto;
 }
+#logo {
+  float:left;
+}
+#logo h1 {
+  font-family:Helvetica,Arial,sans-serif;
+  font-weight:bold;
+  font-size:200%;
+  padding:10px 0 0 10px;
+}
 #user-bar {
   float:right;
 }
@@ -46,4 +55,9 @@ a:hover {
 }
 #eaten-foods a.delete {
   color:#C48BA9;
+}
+#footer {
+  clear:both;
+  margin: 0px auto;
+  text-align:center;
 }
