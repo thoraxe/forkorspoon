@@ -11,21 +11,25 @@ a {
 a:hover {
   text-decoration: underline; }
 
-#logo {
-  float: left; }
-  #logo h1 {
-    font-family: Helvetica,Arial,sans-serif;
-    font-weight: bold;
-    font-size: 200%;
-    padding: 1ex 0 0 1ex; }
+#hd {
+  margin-bottom: 1em;
+  margin-top: 1em; }
+
+#logo h1 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  font-size: 200%;
+  padding-left: 1ex; }
 
 #user-bar {
-  float: right; }
+  padding: 1ex 0 1ex 1ex; }
 
 #user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash {
   background: #dbe6c0;
-  border: 1px solid #c2d9b2;
-  padding: 0.5ex;
+  border: 1px solid #c2d9b2; }
+
+#more-food, #eaten-foods, #user-functions, #doc div.flash {
+  padding: 1ex 1.5ex;
   margin-bottom: 1em; }
 
 #doc div.flash {

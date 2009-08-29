@@ -11,11 +11,12 @@
        });
   %body
     #doc
-      #hd
-        #logo
+      #hd.yui-ge
+        #logo.yui-u.first
           %h1 Fork or Spoon?
-        #user-bar
-          = render :partial => "users/user_bar"
+        #user-bar-container.yui-u
+          #user-bar
+            = render :partial => "users/user_bar"
       #bd
         = display_standard_flashes
         = yield
