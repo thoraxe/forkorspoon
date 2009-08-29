@@ -1,0 +1,15 @@
+#food-stuffs
+  =render :partial => "shared/food" unless display_noms?(@user)
+  -if display_foods?(@user)
+    #eaten-foods
+      -if !@from_date.nil? || !@to_date.nil?
+        -@to_date.step(@from_date, -1) do |d|
+          %h3=d.strftime("%a %b %d, %Y") unless @foodgroups[d].nil?
+          -if !@foodgroups[d].nil?
+            %ul
+              -for food in @foodgroups[d] do
+                %li
+                  ==#{food.created_at.strftime("%I:%M %p")} : #{food.description} #{edit_delete_link(food, @user)}
+      %p.prevnext
+        =prev_link(params[:page], @user) 
+        =next_link(params[:page], @user)
