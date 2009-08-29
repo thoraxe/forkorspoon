@@ -17,7 +17,7 @@ a:hover {
     font-family: Helvetica,Arial,sans-serif;
     font-weight: bold;
     font-size: 200%;
-    padding: 10px 0 0 10px; }
+    padding: 1ex 0 0 1ex; }
 
 #user-bar {
   float: right; }
@@ -25,8 +25,12 @@ a:hover {
 #user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash {
   background: #dbe6c0;
   border: 1px solid #c2d9b2;
-  padding: 5px;
+  padding: 0.5ex;
   margin-bottom: 1em; }
+
+#doc div.flash {
+  background: #c48ba9;
+  color: white; }
 
 #food-stuffs, #doc div.flash, #user-functions {
   clear: both; }
