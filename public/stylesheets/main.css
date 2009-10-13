@@ -24,11 +24,11 @@ a:hover {
 #user-bar {
   padding: 1ex 0 1ex 1ex; }
 
-#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash {
+#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash, #about {
   background: #dbe6c0;
   border: 1px solid #c2d9b2; }
 
-#more-food, #eaten-foods, #user-functions, #doc div.flash {
+#more-food, #eaten-foods, #user-functions, #doc div.flash, #about {
   padding: 1ex 1.5ex;
   margin-bottom: 1em; }
 
@@ -39,14 +39,21 @@ a:hover {
 #food-stuffs, #doc div.flash, #user-functions {
   clear: both; }
 
-#eaten-foods h3 {
+#eaten-foods h3, #about h3 {
   font-family: helvetica,arial,sans-serif;
   font-weight: bold;
   font-size: 150%; }
-#eaten-foods ul {
+#eaten-foods ul, #about ul {
   margin-bottom: 1em; }
-#eaten-foods a.delete {
+#eaten-foods a.delete, #about a.delete {
   color: #c48ba9; }
+
+#about p {
+  margin-top: 1em; }
+#about strong {
+  font-weight: bold; }
+#about em {
+  font-style: italic; }
 
 #ft {
   text-align: center; }

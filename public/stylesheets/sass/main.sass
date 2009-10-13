@@ -31,11 +31,11 @@ a:hover
 #user-bar
   :padding 1ex 0 1ex 1ex
 
-#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash
+#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash, #about
   :background = !lichen
   :border = 1px solid !green_mist
 
-#more-food, #eaten-foods, #user-functions, #doc div.flash
+#more-food, #eaten-foods, #user-functions, #doc div.flash, #about
   :padding 1ex 1.5ex
   :margin-bottom 1em
 
@@ -46,7 +46,7 @@ a:hover
 #food-stuffs, #doc div.flash, #user-functions
   :clear both
 
-#eaten-foods 
+#eaten-foods, #about
   h3
     :font-family helvetica,arial,sans-serif
     :font-weight bold
@@ -55,6 +55,13 @@ a:hover
     :margin-bottom 1em
   a.delete
     :color = !heather
+#about
+  p
+    :margin-top 1em
+  strong
+    :font-weight bold
+  em
+    :font-style italic
 
 #ft
   :text-align center
