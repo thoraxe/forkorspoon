@@ -24,10 +24,6 @@ class UsersController < ApplicationController
     # create groups for each date
     @foodgroups = @foods.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) }
 
-    # figure out the oldest date and the newest date
-    @from_date = @foodgroups.keys.first
-    @to_date = @foodgroups.keys.last
-
     # a food object for the form, just in case
     @food = Food.new
     @foodtime = Time.zone.now.strftime("%m/%d/%Y %I:%M %p")
