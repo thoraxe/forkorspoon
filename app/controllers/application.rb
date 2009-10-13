@@ -19,22 +19,36 @@ class ApplicationController < ActionController::Base
   end
 
   def week_calculator(pagenum)
-    # this function is used to set the dates for the find statement when 
-    # pulling up food data. we take the page number and then return an
-    # array containing the dates. it is expected that you will pass in
-    # params[:page], which is a string, so we convert to i.
-    #
-    # want to pull 1 week per page. need to do some math on the page number to determine the date range
-    # we wack off a second to get a datetime object.  we also use 1 second only to get inside the whole date
-    if pagenum.blank? || pagenum.to_i == 1
-      start = Date.today - Date.today.wday - 1.second
-      the_end = Date.today + 1.days - 1.second
+    # # this function is used to set the dates for the find statement when 
+    # # pulling up food data. we take the page number and then return an
+    # # array containing the dates. it is expected that you will pass in
+    # # params[:page], which is a string, so we convert to i.
+    # #
+    # # want to pull 1 week per page. need to do some math on the page number to determine the date range
+    # # we wack off a second to get a datetime object.  we also use 1 second only to get inside the whole date
+    # if pagenum.blank? || pagenum.to_i == 1
+    #   start = Date.today - Date.today.wday - 1.second
+    #   the_end = Date.today + 1.days - 1.second
+    # else
+    #   # wack one off of the current page to figure out how many weeks we go back
+    #   weeks = pagenum.to_i - 1
+    #   start = Date.today - Date.today.wday - (weeks * 7).days - 1.second 
+    #   the_end = Date.today - Date.today.wday - ((weeks - 1) * 7).days - 1.second
+    # end
+
+    if params[:year].blank? || params[:week].blank?
+      today = Date.today
+      if today.wday == 0
+        start = DateTime.new(today.year, today.month, today.day - 6)
+      else
+        start = DateTime.new(today.year, today.month, today.day - (today.wday - 1))
+      end
+      the_end = start + 6.days 
     else
-      # wack one off of the current page to figure out how many weeks we go back
-      weeks = pagenum.to_i - 1
-      start = Date.today - Date.today.wday - (weeks * 7).days - 1.second 
-      the_end = Date.today - Date.today.wday - ((weeks - 1) * 7).days - 1.second
+      start =   DateTime.commercial(params[:year].to_i, params[:week].to_i, 1)
+      the_end = DateTime.commercial(params[:year].to_i, params[:week].to_i, 7)
     end
+
     return [start,the_end]
   end
 

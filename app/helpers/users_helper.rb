@@ -90,15 +90,23 @@ module UsersHelper
     end
   end
 
-  def prev_link(page, user)
-    return link_to("prev", user_path(user, :page => params[:page].to_i - 1)) unless page.blank?
+  def prev_link(user)
+    if params[:year].blank? || params[:week].blank?
+      return link_to( "prev", userweek_path(:login => user.login, :year => Date.today.year, :week => Date.today.cweek - 1) )
+    else
+      return link_to( "prev", userweek_path(:login => user.login, :year => params[:year].to_i, :week => params[:week].to_i - 1) )
+    end
   end
 
-  def next_link(page, user)
-    if page.blank?
-      link_to "next", user_path(user, :page => 2)
+  def next_link(user)
+    if params[:year].blank? || params[:week].blank?
+      return 
     else
-      link_to "next", user_path(user, :page => params[:page].to_i + 1)
+      if params[:week].to_i == Date.today.cweek
+        return
+      else
+        return link_to( "next", userweek_path(:login => user.login, :year => params[:year].to_i, :week => params[:week].to_i + 1) )
+      end
     end
   end
 

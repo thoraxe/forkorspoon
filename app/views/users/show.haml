@@ -11,5 +11,5 @@
                 %li
                   ==#{food.created_at.strftime("%I:%M %p")} : #{food.description} #{edit_delete_link(food, @user)}
       %p.prevnext
-        =prev_link(params[:page], @user) 
-        =next_link(params[:page], @user)
+        =prev_link(@user) 
+        =next_link(@user) 

@@ -12,9 +12,11 @@ class UsersController < ApplicationController
     @start,@the_end = week_calculator(params[:page])
 
     if params[:login]
+      # if the user login is specified then we grab that particular user.
       @user = User.find_by_login(params[:login])
       @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => @user.id, :created_at => (@start.utc)..(@the_end.utc) } )
     else
+      # otherwise, we grab the user by id
       @user = User.find(params[:id])
       @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => params[:id], :created_at => (@start.utc)..(@the_end.utc) } )
     end
@@ -116,5 +118,11 @@ class UsersController < ApplicationController
       end  
     end  
   end 
+
+  protected
+
+  def day_from_week_num(weeknum)
+    return 7 * weeknum - 6
+  end
 
 end
