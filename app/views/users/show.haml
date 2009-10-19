@@ -3,7 +3,7 @@
   -if display_foods?(@user)
     #eaten-foods
       -if !@start.nil? || !@the_end.nil?
-        -(@start..@the_end).each do |d|
+        -(@start_date..@end_date).each do |d|
           %h3=d.strftime("%a %b %d, %Y")
           %ul
             -if !@foodgroups[d].nil?

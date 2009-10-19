@@ -10,6 +10,9 @@ class UsersController < ApplicationController
 
   def show
     @start,@the_end = week_calculator(params[:page])
+    # these are times, so let's create dates for the loop
+    @start_date = Date.new(@start.year,@start.month,@start.day)
+    @end_date = Date.new(@the_end.year,@the_end.month,@the_end.day)
 
     if params[:login]
       # if the user login is specified then we grab that particular user.

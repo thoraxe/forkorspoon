@@ -39,14 +39,14 @@ class ApplicationController < ActionController::Base
     if params[:year].blank? || params[:week].blank?
       today = Date.today
       if today.wday == 0
-        start = DateTime.new(today.year, today.month, today.day - 6)
+        start = Time.zone.local(today.year, today.month, today.day - 6)
       else
-        start = DateTime.new(today.year, today.month, today.day - (today.wday - 1))
+        start = Time.zone.local(today.year, today.month, today.day - (today.wday - 1))
       end
-      the_end = start + 6.days 
+      the_end = start + 7.days - 1.second
     else
-      start =   DateTime.commercial(params[:year].to_i, params[:week].to_i, 1)
-      the_end = DateTime.commercial(params[:year].to_i, params[:week].to_i, 7)
+      start =   DateTime.commercial(params[:year].to_i, params[:week].to_i, 1,0,0,0,DateTime.now.offset)
+      the_end = DateTime.commercial(params[:year].to_i, params[:week].to_i, 7,0,0,0,DateTime.now.offset)
     end
 
     return [start,the_end]
