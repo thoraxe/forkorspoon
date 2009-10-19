@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
       the_end = start + 7.days - 1.second
     else
       start =   DateTime.commercial(params[:year].to_i, params[:week].to_i, 1,0,0,0,DateTime.now.offset)
-      the_end = DateTime.commercial(params[:year].to_i, params[:week].to_i, 7,0,0,0,DateTime.now.offset)
+      the_end = DateTime.commercial(params[:year].to_i, params[:week].to_i, 7,0,0,0,DateTime.now.offset) + 1.day - 1.second
     end
 
     return [start,the_end]
