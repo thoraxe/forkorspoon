@@ -39,9 +39,9 @@ class ApplicationController < ActionController::Base
     if params[:year].blank? || params[:week].blank?
       today = Date.today
       if today.wday == 0
-        start = Time.zone.local(today.year, today.month, today.day - 6)
+        start = Time.zone.local(today.year, today.month, today.day) - 6.days
       else
-        start = Time.zone.local(today.year, today.month, today.day - (today.wday - 1))
+        start = Time.zone.local(today.year, today.month, today.day) - (today.wday - 1).days
       end
       the_end = start + 7.days - 1.second
     else
