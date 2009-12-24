@@ -1,6 +1,7 @@
 #more-food
+  %h3 Food
   - form_for @food do |f|
     %p
-      == #{f.text_field(:description)} @ #{f.text_field(:created_at, :value => @foodtime)}
+      == #{f.text_field(:description)} @ #{f.text_field(:created_at, :value => @nowtime, :size => 18)}
     %p
       == #{submit_tag("nom")} #{link_to('cancel', user_path(current_user))}

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @start,@the_end = week_calculator(params[:page])
-    # these are times, so let's create dates for the loop
+    # the values returned are datetimes, so let's create dates for the loop
     @start_date = Date.new(@start.year,@start.month,@start.day)
     @end_date = Date.new(@the_end.year,@the_end.month,@the_end.day)
 
@@ -18,18 +18,29 @@ class UsersController < ApplicationController
       # if the user login is specified then we grab that particular user.
       @user = User.find_by_login(params[:login])
       @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => @user.id, :created_at => (@start.utc)..(@the_end.utc) } )
+      @healths = Health.find(:all, :order => "created_at ASC", :conditions => { :user_id => @user.id, :created_at => (@start.utc)..(@the_end.utc) } )
     else
       # otherwise, we grab the user by id
       @user = User.find(params[:id])
       @foods = Food.find(:all, :order => "created_at ASC", :conditions => { :user_id => params[:id], :created_at => (@start.utc)..(@the_end.utc) } )
+      @healths = Health.find(:all, :order => "created_at ASC", :conditions => { :user_id => params[:id], :created_at => (@start.utc)..(@the_end.utc) } )
     end
     
+    # create an array to hold all the objects
+    @stuff = @foods + @healths
+
+    # create master group to hold everything
+    @group = @stuff.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) } 
+
     # create groups for each date
     @foodgroups = @foods.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) }
+    @healthgroups = @healths.group_by{ |f| Date.civil(f.created_at.year, f.created_at.month, f.created_at.day) }
 
-    # a food object for the form, just in case
+    # new objects for the forms, just in case
     @food = Food.new
-    @foodtime = Time.zone.now.strftime("%m/%d/%Y %I:%M %p")
+    @health = Health.new
+    @nowtime = Time.zone.now.strftime("%m/%d/%Y %I:%M %p")
+
   end
 
   # render new.rhtml

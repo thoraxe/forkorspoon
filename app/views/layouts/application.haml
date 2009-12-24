@@ -18,7 +18,8 @@
           #user-bar
             = render :partial => "users/user_bar"
       #bd
-        = display_standard_flashes
+        #notice-container
+          = display_standard_flashes
         = yield
       #ft
         %a{"href" => "http://getsatisfaction.com/fork_or_spoon"}

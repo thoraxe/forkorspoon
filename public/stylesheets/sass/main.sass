@@ -18,7 +18,7 @@ a:hover
   :text-decoration underline
 
 #hd
-  margin-bottom: 1em
+  margin-bottom: 0.5em
   margin-top: 1em
 
 #logo
@@ -31,19 +31,36 @@ a:hover
 #user-bar
   :padding 1ex 0 1ex 1ex
 
-#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash, #about
+#user-bar, #more-food, #eaten-foods, #user-functions, #doc div.flash, #about, #more-health
   :background = !lichen
   :border = 1px solid !green_mist
 
-#more-food, #eaten-foods, #user-functions, #doc div.flash, #about
+#more-food, #eaten-foods, #user-functions, #about, #more-health
   :padding 1ex 1.5ex
   :margin-bottom 1em
+
+#doc #notice-container
+  :height 2.5em
+  :overflow hidden
+  :margin-bottom 0.5em
 
 #doc div.flash
   :background = !heather
   :color = #ffffff
+  padding: 7px
 
-#food-stuffs, #doc div.flash, #user-functions
+#more-food, #more-health
+  :overflow hidden
+  h3
+    :font-weight bold
+    :font-family helvetica,arial,sans-serif
+  fieldset
+    :float left
+    :margin-right 5px
+  fieldset.submit
+    :clear both
+
+#food-stuffs, #user-functions
   :clear both
 
 #eaten-foods, #about

@@ -1,15 +1,19 @@
 #food-stuffs
   =render :partial => "shared/food" unless display_noms?(@user)
+  =render :partial => "shared/health" unless display_noms?(@user)
   -if display_foods?(@user)
     #eaten-foods
       -if !@start.nil? || !@the_end.nil?
         -(@start_date..@end_date).each do |d|
           %h3=d.strftime("%a %b %d, %Y")
           %ul
-            -if !@foodgroups[d].nil?
-              -for food in @foodgroups[d] do
+            -if !@group[d].nil?
+              -for item in @group[d].sort_by{ |d| d.created_at} do
                 %li
-                  ==#{food.created_at.strftime("%I:%M %p")} : #{food.description} #{edit_delete_link(food, @user)}
+                  -if item.is_a?(Food)
+                    ==#{item.created_at.strftime("%I:%M %p")} : #{item.description} #{edit_delete_link(item, @user)}
+                  -if item.is_a?(Health)
+                    =render :partial => "healths/health", :locals => { :item => item }
       %p.prevnext
         =prev_link(@user) 
         =next_link(@user) 

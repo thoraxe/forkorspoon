@@ -1,0 +1,5 @@
+==#{item.created_at.strftime("%I:%M %p")} : 
+= "#{item.weight}lb" unless item.weight.nil?
+= "#{item.fat_percent}%" unless item.fat_percent.nil?
+= "#{item.bmr}cal" unless item.bmr.nil?
+== #{edit_delete_link(item, @user)}

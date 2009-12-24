@@ -110,10 +110,10 @@ module UsersHelper
     end
   end
 
-  def edit_delete_link(food, user)
+  def edit_delete_link(thing, user)
     if logged_in?  
       if current_user.id == user.id
-        link_to('x', food, :method => :delete, :confirm => "Really delete?", :class => "delete") + " " + link_to('edit', edit_food_path(food))
+        link_to('x', thing, :method => :delete, :confirm => "Really delete?", :class => "delete") + " " + link_to('edit', :controller => thing.class.table_name, :action => :edit, :id => thing.id)
       end
     end
   end

@@ -1,0 +1,16 @@
+#more-health
+  %h3 Health
+  - form_for @health do |f|
+    %fieldset.weight
+      == #{label_tag('weight')}
+      == #{f.text_field(:weight, :size => 3, :maxlength => 5)}
+    %fieldset.fat-percent
+      == #{label_tag('fat_percent')}
+      == #{f.text_field(:fat_percent, :size => 3, :maxlength => 5)}
+    %fieldset.bmr
+      == #{label_tag('bmr', 'BMR')}
+      == #{f.text_field(:bmr, :size => 3, :maxlength => 4)}
+    %fieldset.nowtime
+      == @ #{f.text_field(:created_at, :value => @nowtime, :size => 18)}
+    %fieldset.submit
+      == #{submit_tag("ok")} #{link_to('cancel', user_path(current_user))}
